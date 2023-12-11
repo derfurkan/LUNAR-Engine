@@ -10,6 +10,11 @@
             return Random.Next(min, max);
         }
 
+        public static bool GetChance(int chance)
+        {
+            return Random.Next(0, 100) <= chance;
+        }
+
         public static double GetRandomDouble(double min, double max)
         {
             return Random.NextDouble() * (max - min) + min;

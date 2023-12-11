@@ -1,16 +1,19 @@
-﻿using System.Windows;
+﻿using LUNAR_Engine.Engine.GameObjects;
+using LUNAR_Engine.Windows;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace LUNAR_Engine.Engine.Scenary
 {
-    internal class SceneManager
+    public class SceneManager
     {
 
         public GameScene? CurrentGameScene { get; set; }
         public MenuScene? CurrentMenuScene { get; set; }
 
-        private Window ManagerWindow;
+        private EngineWindow ManagerWindow;
 
-        public SceneManager(Window managerWindow)
+        public SceneManager(EngineWindow managerWindow)
         {
             ManagerWindow = managerWindow;
         }
@@ -27,7 +30,9 @@ namespace LUNAR_Engine.Engine.Scenary
             else if (scene is GameScene gameScene)
             {
                 CurrentGameScene = gameScene;
-                // ManagerWindow.UpdateGameScene();
+                ManagerWindow.Content = gameScene.Content;
+                gameScene.Content.Visibility = Visibility.Visible;
+                ManagerWindow.UpdateLayout();
             }
         }
 

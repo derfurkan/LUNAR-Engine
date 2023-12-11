@@ -10,7 +10,7 @@ public class GameScene
 
     public Grid Content = new();
 
-    public Dictionary<IGameObject, Image> GameObjectsDictionary = new();
+    public Dictionary<IGameObject, System.Windows.Controls.Image> GameObjectsDictionary = new();
 
     public string SceneName;
 
@@ -27,7 +27,7 @@ public class GameScene
         image.Height = gameObject.ObjectBoundaries.Height;
         image.Margin = new Thickness(gameObject.ObjectLocation.X, gameObject.ObjectLocation.Y, 0, 0);
 
-        image.RenderTransformOrigin = new Point(0.5, 0.5);
+        image.RenderTransformOrigin = new System.Windows.Point(0.5, 0.5);
         GameObjectsDictionary.Add(gameObject, image);
         Content.Children.Add(image);
     }
@@ -49,8 +49,6 @@ public class GameScene
         foreach (var gameObject in new List<IGameObject>(GameObjectsDictionary.Keys))
         {
             UpdateGameObject(gameObject);
-
-
         }
     }
 

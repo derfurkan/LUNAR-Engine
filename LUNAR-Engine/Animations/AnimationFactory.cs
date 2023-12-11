@@ -1,6 +1,7 @@
 ﻿
 using LUNAR_Engine.Engine.Sprites;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
@@ -59,7 +60,7 @@ namespace LUNAR_Engine.Engine.Animations
             List<Sprite> sprites = new List<Sprite>();
             foreach (var item in Directory.GetFiles(directoryPath))
             {
-                if (item.EndsWith(".png"))
+                if (Regex.IsMatch(item, @"\.png$|\.jpg$"))
                 {
                     sprites.Add(SpriteFactory.Create(item));
                 }

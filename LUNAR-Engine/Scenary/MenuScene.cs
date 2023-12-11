@@ -1,6 +1,6 @@
 ﻿namespace LUNAR_Engine.Engine.Scenary
 {
-    internal class MenuScene
+    public class MenuScene
     {
     }
 }
